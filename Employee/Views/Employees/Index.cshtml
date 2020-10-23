@@ -3,11 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
+<script src='https://kit.fontawesome.com/a076d05399.js'></script></script>
 
-<h2>Index</h2>
+
+<h2>Employee Register</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+ 
+
 </p>
 <table class="table">
     <thead>
@@ -24,30 +27,32 @@
             <th>
                 @Html.DisplayNameFor(model => model.OfficeLocation)
             </th>
-            <th></th>
+            <th><a asp-action="Create"><i class='far fa-plus-square'></i>Employee</i></a></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmpCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Position)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OfficeLocation)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfficeLocation)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.EmployeeId"><i class='fas fa-marker'></i></a> 
+                    <a asp-action="Delete" asp-route-id="@item.EmployeeId"><i class='fas fa-trash-alt' style='color:red'></i></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
